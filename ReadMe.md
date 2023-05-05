@@ -12,7 +12,6 @@ Link to kaggle: https://www.kaggle.com/competitions/house-prices-advanced-regres
 - Train models
 - Predict house price
 - Submission: Kết quả sau khi submit:
-
 ## Khó khăn
 - Cần tìm parameter tốt nhất vì đang train trong khi không dùng parameter
 - Có thể tìm thêm một vài models khác nữa.
