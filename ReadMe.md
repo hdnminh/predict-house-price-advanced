@@ -105,6 +105,7 @@ Chuyển các dữ liệu từ Categorical sang Numerical.
 Sau khi tiền xử lý dữ liệu, chúng ta có tập dữ liệu với kích thước mới:
 - Tập train: (1460, 229)
 - Tập test: (1459, 228)
+
 Sau đó, ta sẽ ghi tập dữ liệu train và tập test mới này ra ngoài file khác và tiến đến quá trình chọn mô hình.
 
 ### 3. Xây dựng mô hình
@@ -113,15 +114,34 @@ Lựa chọn mô hình: Có rất nhiều mô hình để thực hiện cho bộ
 - Các mô hình phát triển hơn: Ridge, Lasso, ...
 - Các mô hình nâng cao: GBoost, XGBoost, Light GBM, ...
 
+#### 3.1. Mô hình Ridge
+#### 3.2. Mô hình Lasso 
+#### 3.3. Mô hình XGBoost
+#### 3.4. Mô hình LightGBM
+#### 3.5. Mô hình Ensemble
+Sử dụng các thông số tốt nhất của 4 mô hình Ridge, Lasso, XGBoost và LightGBM và kết hợp 4 mô hình này lại với nhau.
+
+Có 2 cách kết hợp mô hình
+##### 3.5.1. Bagging
+- Dùng bagging, cho 4 mô hình huấn luyện song song với nhau và ta sẽ dùng trung bình cộng các kết quả của 4 mô hình. 
+- Kết quả thu được của hô mình Bagging là rất tốt (rmse = 0.11058).
+
+##### 3.5.2. Stacking
+- Dùng stacking để kết hợp các mô hình với base models là (Rigde, Lassso, XGBoost, LightGBM) và meta model là Ridge. 
+- Kết quả của mô hình này rất tốt, chênh lệch không nhiều so với Bagging (rmse = 0.1115).
 
 ### 4. Đánh giá mô hình
+Trong model evaluation, thường thì ta sẽ chia toàn bộ data làm 2 tập train và test. Tuy nhiên, đối với bộ dữ liệu này khá nhỏ, nên nếu chia như vậy, thì có lẽ mô hình sẽ dễ bị overfitting. Do đó, ta dùng `cross-validation` là K-Fold với k = 5 để huấn luyện mô hình.
+
+Đề bài yêu cầu đánh giá mô hình bằng độ đo RMSE, tuy nhiên do target variable đã được biến đổi qua log(1 + y), nên MSE cho log(1 + y) là MSLE - Mean Squared Logarithmic Error.
 
 ## III. KẾT QUẢ ĐẠT ĐƯỢC
 ### 1. Kết quả đạt được trên kaggle
+![image](https://github.com/hoangducnhatminh/predict-house-price-advanced/assets/94270107/12bb75de-62d0-40b8-a4c4-12b88cf84fe2)
+![image](https://github.com/hoangducnhatminh/predict-house-price-advanced/assets/94270107/cce856af-0757-4de6-878d-334ad3cad54a)
+Với số điểm RMSE đạt được là 0.11973, thì thứ hạng mà nhóm đạt được là 228 / 4607 teams (chưa loại trừ các bài nộp gian lận).
+
 ### 2. Những khó khăn và hạn chế trong quá trình thực hiện đồ án
-
-
-
 
 
 
