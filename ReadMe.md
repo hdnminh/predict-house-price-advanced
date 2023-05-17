@@ -72,8 +72,8 @@ Giới thiệu sơ qua một vài trường dữ liệu của dữ liệu:
 ### 2. Tiền xữ lý dữ liệu
 #### 2.1. Impute: điền dữ liệu thiếu
 Ta có 3 nhóm thuộc tính khác nhau về loại thuộc tính và giá trị định nghĩa của từng thuộc tính.
-- Nhóm 1: Biến categorical với NA nghĩa là `None`, không có.
-- Nhóm 2: Ngược lại với nhóm 1, biến categorical với NA không có nghĩa là `None`, không có nghĩa là không có.
+- Nhóm 1: Biến categorical với NA nghĩa là `None`, có nghĩa là không có.
+- Nhóm 2: Ngược lại với nhóm 1, biến categorical với NA không có nghĩa là `None`, có nghĩa là có.
 - Nhóm 3: Biến numerical với NA nghĩa là `0`, giá trị 0.
 
 #### 2.2. Loại bỏ nhiễu (outlier)
