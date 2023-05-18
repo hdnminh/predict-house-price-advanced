@@ -72,9 +72,10 @@ Giới thiệu sơ qua một vài trường dữ liệu của dữ liệu:
 ### 2. Tiền xữ lý dữ liệu
 #### 2.1. Impute: điền dữ liệu thiếu
 Ta có 3 nhóm thuộc tính khác nhau về loại thuộc tính và giá trị định nghĩa của từng thuộc tính.
-- Nhóm 1: Biến categorical với NA nghĩa là `None`, có nghĩa là không có.
-- Nhóm 2: Ngược lại với nhóm 1, biến categorical với NA không có nghĩa là `None`, có nghĩa là có.
-- Nhóm 3: Biến numerical với NA nghĩa là `0`, giá trị 0.
+- Nhóm 1: Biến categorical với NA nghĩa là `None`, có nghĩa là không có. Cách xử lý: Thay thế những những vị trí có giá trị NA thành None.
+- Nhóm 2: Ngược lại với nhóm 1, biến categorical với NA không có nghĩa là `None`, có nghĩa là có. Thay thế những vị trí có giá trị NA thành mode (giá trị phổ biến) của cột thuộc tính đó. 
+- Nhóm 3: Biến numerical với NA nghĩa là `0`, giá trị 0. Thay thế những vị trí có giá trị NA thành 0.
+- Trường hợp đặt biệt Cột thuộc tính LotFrontage ta sẽ thay th61 những vị trí có giá trị NA thành mean (giá trị trung vị) của cột thuộc tính LotFrontage.
 
 #### 2.2. Loại bỏ nhiễu (outlier)
 Ta kiểm tra outlier ở các thuộc tính: `GrLiveArea`, `TotalBsmtSF`, `Street`, `LandContour`. Ta có thể nhận xét sơ lược:
